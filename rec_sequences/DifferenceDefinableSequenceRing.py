@@ -92,8 +92,6 @@ from sage.misc.all import prod, randint
 from sage.misc.sage_input import sage_input
 from sage.rings.all import ZZ, QQ, CC
 from sage.rings.qqbar import QQbar
-from sage.rings.ring import CommutativeAlgebra
-from sage.rings.ring import CommutativeRing
 from sage.structure.element import CommutativeAlgebraElement
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.structure.element import RingElement

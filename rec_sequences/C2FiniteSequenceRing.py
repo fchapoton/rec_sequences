@@ -96,8 +96,6 @@ from sage.matrix.special import block_diagonal_matrix
 from sage.misc.all import prod, randint
 from sage.rings.all import ZZ, QQ, CC
 from sage.rings.qqbar import QQbar
-from sage.rings.ring import CommutativeAlgebra
-from sage.rings.ring import CommutativeRing
 from sage.structure.element import CommutativeAlgebraElement
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.structure.element import RingElement

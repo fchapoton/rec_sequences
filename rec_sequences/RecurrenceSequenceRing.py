@@ -4,7 +4,7 @@ This class provides common functionalities for rings of sequences
 defined by linear recurrence relations. The structure of the
 rings is given by:
 
-- :class:`CommutativeAlgebra`
+- :class:`Parent`
     - :class:`rec_sequences.RecurrenceSequenceRing`
         - :class:`rec_sequences.DFiniteSequenceRing`
             - :class:`rec_sequences.CFiniteSequenceRing`
@@ -52,7 +52,6 @@ from sage.rings.all import ZZ, QQ, CC
 from sage.modules.free_module_element import free_module_element as vector
 from sage.symbolic.ring import SR
 from sage.rings.cfinite_sequence import CFiniteSequences as SageCFiniteSequences
-from sage.rings.ring import CommutativeAlgebra
 from sage.structure.element import CommutativeAlgebraElement
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.rings.polynomial.polynomial_ring import is_PolynomialRing
@@ -62,8 +61,8 @@ from sage.categories.fields import Fields
 from sage.categories.algebras import Algebras
 from sage.categories.rings import Rings
 from sage.categories.commutative_algebras import CommutativeAlgebras
-from sage.categories.commutative_rings import CommutativeRings
 from sage.structure.unique_representation import UniqueRepresentation
+from sage.structure.parent import Parent
 from sage.misc.inherit_comparison import InheritComparisonClasscallMetaclass
 from sage.functions.other import floor
 
@@ -515,7 +514,7 @@ class RecurrenceSequenceElement(CommutativeAlgebraElement):
 
 ####################################################################################################
 
-class RecurrenceSequenceRing(UniqueRepresentation, CommutativeAlgebra):
+class RecurrenceSequenceRing(UniqueRepresentation, Parent):
     r"""
     A Ring of linear recurrence sequences over a field.
     """
@@ -543,8 +542,8 @@ class RecurrenceSequenceRing(UniqueRepresentation, CommutativeAlgebra):
 
         self._base_ring = field
 
-        CommutativeAlgebra.__init__(self, field, 
-                                    category=CommutativeAlgebras(field))
+        Parent.__init__(self, base=field,
+                        category=CommutativeAlgebras(field))
         
     def _element_constructor_(self, x, y=None, name="a", check=True, 
                               is_gen = False, construct=False, **kwds):

@@ -66,11 +66,10 @@ from sage.matrix.constructor import Matrix
 from sage.matrix.special import identity_matrix
 from sage.misc.all import prod, randint
 from sage.rings.all import ZZ, QQ, CC
-from sage.rings.ring import CommutativeAlgebra
-from sage.rings.ring import CommutativeRing
 from sage.structure.element import CommutativeAlgebraElement
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.structure.element import RingElement
+from sage.structure.parent import Parent
 from sage.categories.pushout import ConstructionFunctor
 from sage.categories.fields import Fields
 from sage.categories.algebras import Algebras
@@ -1030,7 +1029,7 @@ class FractionSequence(CommutativeAlgebraElement):
 
 ####################################################################################################
 
-class SequenceRingOfFraction(UniqueRepresentation, CommutativeAlgebra):
+class SequenceRingOfFraction(UniqueRepresentation, Parent):
     r"""
     The ring of fractions over a ring of sequences.
     """
@@ -1070,7 +1069,8 @@ class SequenceRingOfFraction(UniqueRepresentation, CommutativeAlgebra):
 
         self._base_ring = base.base_ring()
 
-        CommutativeAlgebra.__init__(self, base.base_ring(), category=CommutativeAlgebras(base.base_ring()))
+        Parent.__init__(self, base=base.base_ring(),
+                        category=CommutativeAlgebras(base.base_ring()))
 
         self._base = base
         self._strict = strict

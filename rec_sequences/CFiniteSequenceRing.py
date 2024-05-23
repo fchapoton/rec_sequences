@@ -86,7 +86,6 @@ from sage.rings.qqbar import QQbar, AA
 from sage.modules.free_module_element import free_module_element as vector
 from sage.symbolic.ring import SR
 from sage.rings.cfinite_sequence import CFiniteSequences as SageCFiniteSequences
-from sage.rings.ring import CommutativeAlgebra
 from sage.structure.element import CommutativeAlgebraElement
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.rings.polynomial.polynomial_ring import is_PolynomialRing
